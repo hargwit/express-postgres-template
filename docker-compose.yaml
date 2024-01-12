@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+    postgres:
+        image: postgres:16
+        command: ['-c', 'log_statement=all']
+        ports:
+            - '5432:5432'
+        container_name: template_postgres
+        environment:
+            POSTGRES_DB: 'template'
+            POSTGRES_USER: 'template_postgres'
+            POSTGRES_PASSWORD: 'p0stgr3s'
+            POSTGRES_HOST_AUTH_METHOD: 'trust'
