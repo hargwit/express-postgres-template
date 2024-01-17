@@ -3,6 +3,7 @@ import express from 'express'
 import { config } from '../config'
 import { infraRouter } from '../api/infraRouter'
 import { appRouter } from '../api/appRouter'
+import { errorHandler } from './errorHandler'
 
 export const startServer = (): Server => {
     const app = express()
@@ -11,6 +12,8 @@ export const startServer = (): Server => {
     app.use(infraRouter())
 
     app.use(appRouter())
+
+    app.use(errorHandler)
 
     const server = app.listen(config.port)
 

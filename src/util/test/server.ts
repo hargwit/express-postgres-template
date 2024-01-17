@@ -7,7 +7,8 @@ export const setupServer = async (): Promise<Server> => {
     return startServer()
 }
 
-export const teardownServer = (server: Server): Promise<void> =>
-    new Promise((resolve) => {
+export const teardownServer = async (server: Server): Promise<void> => {
+    await new Promise<void>((resolve) => {
         server.close(() => resolve())
     })
+}
