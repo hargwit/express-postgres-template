@@ -4,6 +4,8 @@ import request from 'supertest'
 
 import { faker } from '@faker-js/faker'
 
+jest.mock('../../util/logging/logger')
+
 describe('GET /ready', () => {
     let server: Server
 

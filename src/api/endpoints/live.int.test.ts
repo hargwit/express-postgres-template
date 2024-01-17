@@ -3,6 +3,8 @@ import { Server } from 'http'
 import request from 'supertest'
 import { Status } from '../../server/status'
 
+jest.mock('../../util/logging/logger')
+
 describe('GET /live', () => {
     let server: Server
 
